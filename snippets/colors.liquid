@@ -71,7 +71,7 @@
     --font-heading-weight: {{ settings.type_header_font.weight }};
 
     --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
-    --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+    --font-heading-scale: 1rem;
     
     --page-width: 100%;
     --page-padding: {{settings.page_padding | default: 1 }}rem;
