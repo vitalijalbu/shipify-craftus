@@ -7,7 +7,7 @@
 
 .card {
   text-decoration: none;
-  text-align: center; /* Center-align content */
+  text-align: center; 
 }
 
 .card__media {
@@ -81,15 +81,4 @@
 
 .card__media:hover .secondary-image {
   opacity: 1;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .card__media {
-    height: 300px; /* Adjust height for smaller screens */
-  }
-
-  .card__price {
-    font-size: 1rem; /* Adjust price font size */
-  }
 }
