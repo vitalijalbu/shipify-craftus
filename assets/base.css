@@ -27,7 +27,7 @@ body {
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: var(--page-padding);
+  padding: 0 var(--page-padding);
 }
 
 
