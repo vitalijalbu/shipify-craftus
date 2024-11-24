@@ -13,7 +13,7 @@
     >
       <span>
         {%- render 'icon-picker' with 'hamburger', class: 'header__nav-icon' -%}
-        {{- 'icon-close.svg' | inline_asset_content -}}
+        {%- render 'icon-picker' with 'close', class: 'header__nav-icon' -%}
       </span>
     </summary>
     <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
@@ -31,10 +31,10 @@
                       >
                         {{ link.title | escape }}
                         <span class="svg-wrapper">
-                          {{- 'icon-arrow.svg' | inline_asset_content -}}
+                          {%- render 'icon-picker' with 'arrow-right' -%}
                         </span>
                         <span class="svg-wrapper">
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                          {%- render 'icon-picker' with 'arrow-right' -%}
                         </span>
                       </summary>
                       <div
@@ -45,7 +45,7 @@
                         <div class="menu-drawer__inner-submenu">
                           <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
                             <span class="svg-wrapper">
-                              {{- 'icon-arrow.svg' | inline_asset_content -}}
+                              {%- render 'icon-picker' with 'arrow-right' -%}
                             </span>
                             {{ link.title | escape }}
                           </button>
@@ -71,7 +71,7 @@
                                     >
                                       {{ childlink.title | escape }}
                                       <span class="svg-wrapper">
-                                        {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                        {%- render 'icon-picker' with 'arrow-right' -%}
                                       </span>
                                       <span class="svg-wrapper">
                                         {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -86,7 +86,7 @@
                                         aria-expanded="true"
                                       >
                                         <span class="svg-wrapper">
-                                          {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                          {%- render 'icon-picker' with 'arrow-right' -%}
                                         </span>
                                         {{ childlink.title | escape }}
                                       </button>

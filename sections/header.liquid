@@ -216,13 +216,7 @@
             <span class="svg-wrapper"><span>Account</span></span>
           {%- endif -%}
           <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
+            Account
           </span>
         </a>
       {%- endif -%}
