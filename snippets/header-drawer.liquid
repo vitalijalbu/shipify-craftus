@@ -12,7 +12,7 @@
       aria-label="{{ 'sections.header.menu' | t }}"
     >
       <span>
-        {{- 'icon-hamburger.svg' | inline_asset_content -}}
+        {%- render 'icon-picker' with 'hamburger', class: 'header__nav-icon' -%}
         {{- 'icon-close.svg' | inline_asset_content -}}
       </span>
     </summary>
