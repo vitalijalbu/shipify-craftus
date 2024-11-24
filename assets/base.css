@@ -2084,11 +2084,16 @@ input[type='checkbox'] {
   z-index: initial;
 }
 
+.section-content{
+  padding: 2rem 0;
+}
+
 /* Main Header Layout */
 .header-wrapper {
   display: block;
   position: relative;
   background-color: rgb(var(--color-background));
+  border-bottom: 1px solid;
 }
 
 .header-wrapper--border-bottom {
