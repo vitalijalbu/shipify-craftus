@@ -20,23 +20,7 @@ Supported variables
 {%- capture class -%}{{ class }} icon icon-{{ icon | handle }} {% if offset %}offset-icon{% endif %} {% if direction_aware %}icon--direction-aware{% endif %}{%- endcapture -%}
 
 {%- case icon -%}
-  {%- when 'italy' -%}
-    <svg aria-hidden="true" focusable="false" fill="none" width="{{ width | default: 10 }}" class="{{ class | strip }}" viewBox="0 0 10 10">
-      <path fill="#CE2B37" d="M36 27a4 4 0 0 1-4 4h-8V5h8a4 4 0 0 1 4 4v18z"></path><path fill="#009246" d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h8V5H4z"></path><path fill="#EEE" d="M12 5h12v26H12z"></path>
-      </svg>
-   
-    
-  {%- when 'handmade' -%}
-    <svg aria-hidden="true" focusable="false" fill="none" width="{{ width | default: 10 }}" class="{{ class | strip }}" viewBox="0 0 10 10">
-      <path d="m1 3 4 4 4-4" stroke="currentColor" stroke-linecap="square"/>
-    </svg>  
-    
-  {%- when 'rain' -%}
-    <svg aria-hidden="true" focusable="false" fill="none" width="{{ width | default: 10 }}" class="{{ class | strip }}" viewBox="0 0 10 10">
-      <path d="m1 3 4 4 4-4" stroke="currentColor" stroke-linecap="square"/>
-    </svg>
 
-  {%- comment -%} UI {%- endcomment -%}
   {%- when 'chevron-down' -%}
     <svg aria-hidden="true" focusable="false" fill="none" width="{{ width | default: 10 }}" class="{{ class | strip }}" viewBox="0 0 10 10">
       <path d="m1 3 4 4 4-4" stroke="currentColor" stroke-linecap="square"/>
