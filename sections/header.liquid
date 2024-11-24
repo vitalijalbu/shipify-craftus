@@ -208,7 +208,6 @@
             <span>Account</span>
         </a>
 
-
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when '@app' -%}
@@ -216,19 +215,8 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <a href="{{ routes.cart_url }}" class="header__menu-item list-menu__item link link--text focus-inset" id="cart-icon-bubble">
-          {% if cart == empty %}
-            <span class="svg-wrapper">Bag</span>
-          {% else %}
-            <span class="svg-wrapper">Bag</span>
-          {% endif %}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-              <span aria-hidden="true">{{ cart.item_count | default : 0}}</span>
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="header__menu-item list-menu__item link link--text focus-inset">
+            <span>Bag {{ cart.item_count | default : 0}}</span>
       </a>
     </div>
   </header>
