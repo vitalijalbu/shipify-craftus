@@ -1,42 +1,41 @@
 <div class="card-wrapper product-card-wrapper underline-links-hover">
-  <div class="gradient-mask"></div>
+  <div class="gradient-mask"></div> <!-- Gradient overlay -->
   <div class="card card--product">
-    <div class="card__inner{% if settings.card_style == 'standard' %} color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}">
-      
-      {% if card_product.featured_media %}
-        <div class="card__media hover-switch{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
-          <div class="media media--transparent media--hover-effect">
-            <!-- Reusable Image Component -->
-            {% render 'image', 
-              image: card_product.featured_media, 
-              class: 'motion-reduce primary-image', 
-              lazyload: true, 
-              alt: card_product.featured_media.alt 
-            %}
+    <div class="card__media">
+      <div class="media">
+        <!-- Primary Image -->
+        {% render 'image', 
+          image: card_product.featured_media, 
+          class: 'primary-image', 
+          lazyload: true, 
+          alt: card_product.featured_media.alt 
+        %}
 
-            {% if card_product.media[1] and show_secondary_image %}
-              {% render 'image', 
-                image: card_product.media[1], 
-                class: 'motion-reduce secondary-image', 
-                lazyload: true, 
-                alt: card_product.media[1].alt 
-              %}
-            {% endif %}
-          </div>
-        </div>
-      {% endif %}
-      
-      <div class="card__content">
-        <div class="card__information">
-          <h3 class="card__heading">
-            <a href="{{ card_product.url }}" class="full-unstyled-link">
-              {{ card_product.title | escape }}
-            </a>
-          </h3>
-          <div class="card__price">
-              {% render 'price', product: card_product %}
-          </div>
-        </div>
+        <!-- Optional Secondary Image for Hover -->
+        {% if card_product.media[1] %}
+          {% render 'image', 
+            image: card_product.media[1], 
+            class: 'secondary-image', 
+            lazyload: true, 
+            alt: card_product.media[1].alt 
+          %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="card__content text-left">
+      <h3 class="card__heading">
+        <a href="{{ card_product.url }}" class="full-unstyled-link">
+          {{ card_product.title | escape }}
+        </a>
+      </h3>
+      <div class="card__price">
+        {%- if card_product.available == false -%}
+          <span>
+            {{- 'products.product.sold_out' | t -}}
+          </span>
+        {% else %}
+        {% render 'price', product: card_product %}
+        {%- endif -%}
       </div>
     </div>
   </div>
