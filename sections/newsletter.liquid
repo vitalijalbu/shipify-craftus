@@ -18,10 +18,10 @@
   <div class="newsletter__wrapper color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
     {%- if section.settings.logo_img -%}
       <img 
-        src="{{ section.settings.logo_img | image_url: width: section.settings.logo_width }}" 
+        src="{{ section.settings.logo_img | image_url: height: section.settings.logo_height }}" 
         alt="Newsletter Logo" 
         class="newsletter__logo"
-        width="{{ section.settings.logo_width }}"
+        width="{{ section.settings.logo_height }}"
         height="auto" />
     {%- endif -%}    
   {%- for block in section.blocks -%}
@@ -163,7 +163,7 @@
     }, 
     {
       "type": "range",
-      "id": "logo_width",
+      "id": "logo_height",
       "label": "Logo width",
       "min": 10,
       "max": 100,
