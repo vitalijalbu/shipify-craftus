@@ -51,7 +51,7 @@
   padding: 1rem 0;
 }
 .card__heading *{
-  font-weight: 600;
+  font-weight: bolder;
 }
 
 .primary-image,
@@ -81,4 +81,7 @@
 
 .card__media:hover .secondary-image {
   opacity: 1;
+}
+.price-item{
+  font-size: 1rem;
 }

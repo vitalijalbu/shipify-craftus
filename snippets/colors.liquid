@@ -9,11 +9,10 @@
 {% endcomment %}
 
 {% style %}
-  {{ settings.type_body_font | font_face: font_display: 'swap' }}
-  {{ body_font_bold | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_face: font_display: 'swap', font_modify: 400 }}
   {{ body_font_italic | font_face: font_display: 'swap' }}
   {{ body_font_bold_italic | font_face: font_display: 'swap' }}
-  {{ settings.type_header_font | font_face: font_display: 'swap' }}
+  {{ settings.type_header_font | font_face: font_display: 'swap', font_modify: 600 }}
 
   {% for scheme in settings.color_schemes -%}
     {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
@@ -56,19 +55,20 @@
   {% endfor %}
 
   {{ scheme_classes | prepend: 'body' }} {
-    color: rgba(var(--color-foreground), 0.75);
+    color: rgba(var(--color-foreground));
     background-color: rgb(var(--color-background));
   }
 
   :root {
     --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
     --font-body-style: {{ settings.type_body_font.style }};
-    --font-body-weight: {{ settings.type_body_font.weight }};
-    --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
+    --font-body-weight: 400;
+    --font-body-weight-semibold: 500;
+    --font-body-weight-bold: 600;
 
     --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
-    --font-heading-style: {{ settings.type_header_font.style }};
-    --font-heading-weight: {{ settings.type_header_font.weight }};
+    --font-heading-style: normal;
+    --font-heading-weight: 600;
 
     --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
     --font-heading-scale: 1rem;

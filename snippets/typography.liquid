@@ -1,54 +1,46 @@
-{% comment %}
-  Renders fonts links and variables.
-
-  Adastra also teaches you stuff ✦
-  - You can also use snippets to gather related blocks of code ;)
-  in this case rendering Shopify font and settings up all typography
-  token.
-
-  Usage:
-    {% render 'typography' %}
-{% endcomment %}
-
 {% style %}
-  {% comment %} We only render the font face if its not a system font {% endcomment %}
-  {% unless settings.type_heading.system? %}
-    {% liquid
-      assign font_heading = settings.type_heading
-      assign font_heading_bold = font_heading | font_modify: 'weight', 'bold'
-    %}
+  /* Body Font: Regular */
+  @font-face {
+    font-family: "{{ settings.type_body_font.family }}";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("{{ settings.type_body_font | font_url: weight: '400', style: 'normal' }}") format("woff2");
+  }
 
-    {{ font_heading | font_face: font_display: 'swap' }}
-    {{ font_heading_bold | font_face: font_display: 'swap' }}
-  {% endunless %}
+  /* Body Font: Bold */
+  @font-face {
+    font-family: "{{ settings.type_body_font.family }}";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("{{ settings.type_body_font | font_url: weight: '700', style: 'normal' }}") format("woff2");
+  }
 
-  {% unless settings.type_body.system? %}
-    {% liquid
-      assign font_body = settings.type_body
-      assign font_body_bold = font_body | font_modify: 'weight', 'bold'
-      assign font_body_italic = font_body | font_modify: 'style', 'italic'
-    %}
+  /* Body Font: Italic */
+  @font-face {
+    font-family: "{{ settings.type_body_font.family }}";
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+    src: url("{{ settings.type_body_font | font_url: weight: '500', style: 'italic' }}") format("woff2");
+  }
 
-    {{ font_body | font_face: font_display: 'swap' }}
-    {{ font_body_bold | font_face: font_display: 'swap' }}
-    {{ font_body_italic | font_face: font_display: 'swap' }}
-  {% endunless %}
+  /* Body Font: Bold Italic */
+  @font-face {
+    font-family: "{{ settings.type_body_font.family }}";
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+    src: url("{{ settings.type_body_font | font_url: weight: '700', style: 'italic' }}") format("woff2");
+  }
 
-  :root {
-    --type-heading-scale: 1;
-    --type-body-scale: 1;
-
-    --font-heading-family: {{ settings.type_heading.family }}, {{ settings.type_heading.fallback_families }};
-    --font-heading-style: {{ settings.type_heading.style }};
-    --font-heading-weight: {{ settings.type_heading.weight }};
-
-    --font-body-family: {{ settings.type_body.family }}, {{ settings.type_body.fallback_families }};
-    --font-body-style: {{ settings.type_body.style }};
-    --font-body-weight: {{ settings.type_body.weight }};
-
-    --font-size-sm: calc(var(--type-body-scale) * 0.875rem);
-    --font-size-base: calc(var(--type-body-scale) * 1rem);
-    --font-size-lg: calc(var(--type-body-scale) * 1.125rem);
-    --font-size-xl: calc(var(--type-heading-scale) * 1.25rem);
+  /* Header Font */
+  @font-face {
+    font-family: "{{ settings.type_header_font.family }}";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("{{ settings.type_header_font | font_url: weight: '400', style: 'normal' }}") format("woff2");
   }
 {% endstyle %}
