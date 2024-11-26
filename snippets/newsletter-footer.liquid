@@ -3,11 +3,11 @@
   <div class="col text-left">
     {%- if block.settings.logo_img -%}
       <img
-        src="{{ block.settings.logo_img | image_url: height: block.settings.logo_height }}"
+        src="{{ block.settings.logo_img | image_url: block.settings.logo_height }}"
         alt="Newsletter Footer Logo"
         class="newsletter_footer__logo"
-        width="{{ block.settings.logo_height }}"
-        height="auto"
+        height="{{ block.settings.logo_height }}"
+        width="100%"
       >
     {%- endif -%}
   </div>
